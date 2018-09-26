@@ -1,0 +1,23 @@
+{
+  "name": "four-operations",
+  "version": "1.0.0",
+  "description": "1. 使用 -n 参数控制生成题目的个数：",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yanzery/Four-operations.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yanzery/Four-operations/issues"
+  },
+  "homepage": "https://github.com/Yanzery/Four-operations#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "jquery": "^3.3.1"
+  }
+}
