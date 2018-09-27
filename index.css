@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    border: 0;
+}
+.operate{
+    background-color: aquamarine;
+    height: 200px;
+}
+
+.scope{
+    /* position: relative; */
+    /* line-height: 200px; */
+
+}
+.proplem {
+   height: 600px;
+   width: 400px;
+   border: 5px solid red;
+   /* float: right; */
+}
+
+.answer {
+    height: 600px;
+    width: 400px;
+    border: 5px solid black;
+    float: left;
+ }
