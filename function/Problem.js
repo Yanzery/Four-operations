@@ -1,11 +1,12 @@
 /**
  * 表达式生成类
  */
-function Problem(max_num)
+function Problem(max_num, question_num)
 {
     this.max_num = max_num; //题目中最大值
     this.arr_operator = ['+', '-', '*', '÷'];
     this.op_num = 3; //单个表达式中符号最多为3个
+    this.question_num = question_num;
 }
 
 module.exports = Problem;
@@ -30,10 +31,10 @@ Problem.prototype.q_generator = function(){
                 bracket_flag = true;
             }
         }
-        if(Math.random() > 0.9){
+        if(Math.random() > 0.2){
             num = Math.ceil(Math.random() * this.max_num); //生成整数
         }else{
-            let fraction = new Fraction(); //分数处理
+            let fraction = new Fraction(this.max_num); //分数处理
             num = fraction.create_num(); //生成分数
         }
         question += (num + ' '); //加数字
@@ -57,4 +58,18 @@ Problem.prototype.q_generator = function(){
     question += (num + ' ');
     if(bracket_flag)question += ')';
     return question;
+}
+
+//生成10000道题目
+Problem.prototype.create = function(){
+    let tmp ='';
+    for(let i = 0; i < this.question_num; i++)
+    {
+        let tmp1 = this.q_generator();
+        tmp += (tmp1 + '\n');
+    }
+    const fs = require('fs');
+    fs.writeFile('./exercises.txt', tmp, {'flag': 'a'}, function(err){
+        if(err)throw err;
+    });
 }

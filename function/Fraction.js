@@ -1,9 +1,9 @@
 /**
  * 分数生成类
  */
-function Fraction(){
-    this.max_fenzi = 10; //设置分子的最大值
-    this.max_fenmu = 20; //设置分母的最大值
+function Fraction(max_num){
+    this.max_fenzi = max_num; //设置分子的最大值
+    this.max_fenmu = max_num; //设置分母的最大值
 }
 
 module.exports = Fraction;
