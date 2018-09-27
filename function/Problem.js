@@ -1,7 +1,10 @@
+/**
+ * 表达式生成类
+ */
 function Problem(max_num)
 {
     this.max_num = max_num; //题目中最大值
-    this.arr_operator = ['+', '-', '*', '/'];
+    this.arr_operator = ['+', '-', '*', '÷'];
     this.op_num = 3; //单个表达式中符号最多为3个
 }
 
@@ -15,6 +18,7 @@ Problem.prototype.q_generator = function(){
     let len = Math.ceil(Math.random() * this.op_num); //表达式符号不能超过三个
     let op_len = this.arr_operator.length;
     let num_flag = 0; //把类似(6)+8-7这种情况排除掉
+    const Fraction = require('./Fraction');
     while(len > 0)
     {
         len -= 1;
@@ -22,12 +26,17 @@ Problem.prototype.q_generator = function(){
         {
             if(Math.random() > 0.5)
             {
-                question += '(';
+                question += '( ';
                 bracket_flag = true;
             }
         }
-        num = Math.ceil(Math.random() * this.max_num);
-        question += String(num); //加数字
+        if(Math.random() > 0.9){
+            num = Math.ceil(Math.random() * this.max_num); //生成整数
+        }else{
+            let fraction = new Fraction(); //分数处理
+            num = fraction.create_num(); //生成分数
+        }
+        question += (num + ' '); //加数字
         if(bracket_flag)num_flag++;
         if(bracket_flag) //判断是否加右括号
         {
@@ -35,17 +44,17 @@ Problem.prototype.q_generator = function(){
             {
                 if(num_flag > 1)
                 {
-                    question += ')';
+                    question += ') ';
                     bracket_flag = false;
                     num_flag = 0;
                 }
             }
         }
         let op = this.arr_operator[Math.floor(Math.random() * op_len)];
-        question += op; //加运算符
+        question += (op + ' '); //加运算符
     }
     num = Math.ceil(Math.random() * this.max_num);
-    question += String(num);
+    question += (num + ' ');
     if(bracket_flag)question += ')';
     return question;
 }
