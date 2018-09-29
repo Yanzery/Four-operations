@@ -6,6 +6,10 @@ try
     const Problem = require('./Problem');
     let problem = new Problem(max_num, question_num);
     problem.create(); //题目生成
+
+    const Calculate = require('./Calculate');
+    let calc = new Calculate();
+    calc.get_answer(); //题目计算
 }
 catch(error)
 {

@@ -55,8 +55,8 @@ Problem.prototype.q_generator = function(){
         question += (op + ' '); //加运算符
     }
     num = Math.ceil(Math.random() * this.max_num);
-    question += (num + ' ');
-    if(bracket_flag)question += ')';
+    question += (num);
+    if(bracket_flag)question += ' )';
     return question;
 }
 
