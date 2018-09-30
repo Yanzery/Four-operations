@@ -12,30 +12,43 @@
 </head>
 
 <body>
-  <div class="operate">
+  <div class="container">
+
+    <div class="title">
+      四则运算器
+    </div>
 
     <div class="inputO">
       <div class="scope">
-        <p>数值的范围：</p>
-        <input type="text">
+        数值的范围：
+        <input type="text" class="inputScope">
       </div>
       <div class="number">
-        <p>生成题目的个数：</p>
-        <input type="text">
+        题目的个数：
+        <input type="text" class="inputNumber">
+      </div>
+
+      <button class="beginProblem">开始生成题目</button>
+    </div>
+
+  </div>
+
+  <div class="showDiv"> 
+    <div class="showProplem">
+      <button class="problemBt">导出题目文件</button>
+      <div class="proplem">
+
       </div>
     </div>
 
-    <div>
-      <button>选择上传文件</button>
+    <div class="showAnswer">
+      <button class="answerBt">生成答案并导出文件</button>
+    <div class="answer">
+  
     </div>
   </div>
 
-  <div class="proplem">
-    
-  </div>
   
-  <div class="answer">
-
   </div>
 
 </body>
