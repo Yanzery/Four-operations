@@ -56,7 +56,11 @@ Problem.prototype.q_generator = function(){
     }
     num = Math.ceil(Math.random() * this.max_num);
     question += (num);
-    if(bracket_flag)question += ' )';
+    if(bracket_flag)
+        question += ' )';
+    if(question[0] == '(' && question.indexOf(')') == question.length-1){
+        question = question.slice(2, -2); //排除掉(7+8-9)这种情况
+    }
     return question;
 }
 
@@ -66,7 +70,9 @@ Problem.prototype.create = function(){
     for(let i = 0; i < this.question_num; i++)
     {
         let tmp1 = this.q_generator();
-        tmp += (tmp1 + '\n');
+        tmp = tmp + tmp1;
+        if(i != this.question_num - 1)
+            tmp += '\n';
     }
     const fs = require('fs');
     fs.writeFile('./exercises.txt', tmp, {'flag': 'a'}, function(err){

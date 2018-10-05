@@ -26,6 +26,5 @@ Fraction.prototype.create_num = function(){
             result_num += (tmp + "'" + fenzi + '/' + fenmu);
             return result_num;
         }
-    }
-    
+    }  
 }
